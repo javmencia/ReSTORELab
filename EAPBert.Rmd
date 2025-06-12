@@ -1,0 +1,34 @@
+---
+title: "EAPbert"
+author: "Javier Mencia"
+date: "2025-06-12"
+output: html_document
+---
+
+
+#  {.tabset}
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(factoextra)
+library(stringr)
+library(sjPlot)
+library(ggpubr)
+library(readxl)
+```
+
+```{r}
+telusquotes <- read_excel("Telus Health Quote Spreadsheet.xlsx")
+
+
+telusquotes$participant_number <- gsub("Participant ", "", telusquotes$`Participant ID`)
+telusquotes$participant_number <- as.numeric(telusquotes$participant_number)
+
+```
+
+
+
+
